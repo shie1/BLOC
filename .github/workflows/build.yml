@@ -10,7 +10,7 @@ permissions:
   pages: write
 
 env:
-  INSTANCE: 'Writerside/B-BLWOC'
+  INSTANCE: 'BLOC/B-BLWOC'
   ARTIFACT: 'webHelpB-BLWOC2-all.zip'
   DOCKER_VERSION: '233.14389'
 
