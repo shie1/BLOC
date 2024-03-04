@@ -2,10 +2,12 @@
 <buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <build-profile instance="b-blwoc">
+    <build-profile instance="b">
         <variables>
-            <noindex-content>false</noindex-content>
             <primary-color>ruby</primary-color>
+            <custom-favicons>bloc_favicon.png</custom-favicons>
+            <header-logo>bloc.svg</header-logo>
+            <noindex-content>false</noindex-content>
         </variables>
         <footer>
             <link href="https://github.com/shie1/BLOC">GitHub</link>

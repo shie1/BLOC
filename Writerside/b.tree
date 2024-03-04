@@ -2,8 +2,8 @@
 <!DOCTYPE instance-profile
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
-<instance-profile id="b-blwoc"
-                 name="BLOC - Building Lessons with Organized Content"
+<instance-profile id="b"
+                 name="BLOC"
                  start-page="Abstract.md">
 
     <toc-element topic="Abstract.md"/>
