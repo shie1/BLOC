@@ -2,26 +2,14 @@
 <buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <variables></variables>
-    <build-profile instance="hi">
-        <variables>
-            <noindex-content>false</noindex-content>
-        </variables>
-    </build-profile>
-    <build-profile instance="e(cdl">
-        <variables>
-            <noindex-content>true</noindex-content>
-        </variables>
-    </build-profile>
-    <build-profile instance="b(lwoc">
-        <variables>
-            <noindex-content>true</noindex-content>
-        </variables>
-    </build-profile>
     <build-profile instance="b-blwoc">
         <variables>
             <noindex-content>false</noindex-content>
+            <primary-color>ruby</primary-color>
         </variables>
+        <footer>
+            <link href="https://github.com/shie1/BLOC">GitHub</link>
+        </footer>
     </build-profile>
 
 </buildprofiles>
