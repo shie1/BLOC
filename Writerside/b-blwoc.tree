@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="b-blwoc"
+                 name="BLOC - Building Lessons with Organized Content"
+                 start-page="Abstract.md">
+
+    <toc-element topic="Abstract.md"/>
+    <toc-element topic="Tag-reference.md">
+        <toc-element topic="Core-Structure-Tags.md"/>
+        <toc-element topic="Content-Tags.md">
+            <toc-element topic="Text-Tags.md"/>
+            <toc-element topic="Visual-Tags.md"/>
+        </toc-element>
+    </toc-element>
+</instance-profile>
