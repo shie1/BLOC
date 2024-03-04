@@ -10,7 +10,7 @@ instructional content formats.
 <code-block collapsed-title="Example BLOC Lesson" lang="xml" collapsible="true">
 <![CDATA[
 <?xml version="1.0" encoding="utf-8" ?>
-<?bloc version="1.0" ?>
+<?bloc version="1.0" format="print" ?>
 <lesson>
     <title>An Intoduction to BLOC</title>
     <author>John Doe</author>
