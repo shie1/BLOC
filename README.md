@@ -1,4 +1,4 @@
-![SH1 Academy](Writerside/images/bloc.svg)
+![BLOC](Writerside/images/bloc.png)
 # BLOC (Building Lessons with Organized Content)
 
 BLOC is an XML-based markup language designed specifically for describing educational materials. Its design emphasizes simplicity, modularity, and extensibility, making it ideal for various instructional content formats.
