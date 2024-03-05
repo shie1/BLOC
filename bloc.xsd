@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="lesson">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="xs:string"/>
+                <xs:element name="author" type="xs:string" minOccurs="0"/>  <xs:element name="date" type="xs:date"/>
+                <xs:element name="content">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="section" type="SectionType" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="format" type="FormatType" use="required"/>
+            <xs:attribute name="lang" type="xs:language" /> </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="SectionType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="p" type="xs:string"/>
+                <xs:element name="h" type="HeadingType"/>
+                <xs:element name="ul" type="UnorderedListType"/>
+                <xs:element name="ol" type="OrderedListType"/>
+                <xs:element name="def" type="DefinitionType"/>
+                <xs:element name="img" type="ImageType"/>
+                <xs:element name="video" type="VideoType"/>
+                <xs:element name="note" type="xs:string"/>
+                <xs:element name="warning" type="xs:string"/>
+                <xs:element name="citation" type="CitationType"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="optional"/>
+    </xs:complexType>
+
+    <xs:simpleType name="FormatType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="print"/>
+            <xs:enumeration value="interactive"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="HeadingType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="level" type="xs:integer" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="UnorderedListType">
+        <xs:sequence>
+            <xs:element name="li" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrderedListType">
+    </xs:complexType>
+
+    <xs:complexType name="DefinitionType">
+        <xs:attribute name="title" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="ImageType">
+        <xs:attribute name="src" type="xs:anyURI" use="required"/>
+        <xs:attribute name="alt" type="xs:string" use="required"/>
+        <xs:attribute name="caption" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="VideoType">
+    </xs:complexType>
+
+    <xs:complexType name="CitationType">
+    </xs:complexType>
+
+</xs:schema>
