@@ -10,7 +10,9 @@ instructional content formats.
 <code-block collapsed-title="Example BLOC Lesson" lang="xml" collapsible="true">
 <![CDATA[
 <?xml version="1.0" encoding="utf-8" ?>
-<lesson format="print">
+<lesson format="print" lang="en"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="https://cdn.jsdelivr.net/gh/shie1/BLOC@master/bloc.xsd">
     <title>An Intoduction to BLOC</title>
     <author>John Doe</author>
     <date>2020-01-01</date>
@@ -60,9 +62,12 @@ BLOC contains tags for embedding interactive content.
 </deflist>
 
 ## Why use BLOC?
-BLOC streamlines the creation and management of high-quality educational content, empowering educators to focus on what matters most – teaching.
+
+BLOC streamlines the creation and management of high-quality educational content, empowering educators to focus on what
+matters most – teaching.
 
 BLOC addresses common challenges like:
+
 - Disorganized content
 - Inefficient authoring processes
 - Limited flexibility and adaptability

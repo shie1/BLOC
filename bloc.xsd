@@ -2,10 +2,17 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
     <xs:element name="lesson">
+        <xs:annotation>
+            <xs:documentation>
+                A BLOC lesson.
+                Read more: https://bloc.shie1bi.hu
+            </xs:documentation>
+        </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="title" type="xs:string"/>
-                <xs:element name="author" type="xs:string" minOccurs="0"/>  <xs:element name="date" type="xs:date"/>
+                <xs:element name="title" type="TitleType"/>
+                <xs:element name="author" type="AuthorType" minOccurs="0"/>
+                <xs:element name="date" type="xs:date"/>
                 <xs:element name="content">
                     <xs:complexType>
                         <xs:sequence>
@@ -18,11 +25,28 @@
             <xs:attribute name="lang" type="xs:language" /> </xs:complexType>
     </xs:element>
 
+    <xs:simpleType name="TitleType">
+        <xs:annotation>
+            <xs:documentation>The title of the current lesson or section.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="AuthorType">
+        <xs:annotation>
+            <xs:documentation>The author of the current lesson or section.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
     <xs:complexType name="SectionType">
+        <xs:annotation>
+            <xs:documentation>A section in the lesson.</xs:documentation>
+        </xs:annotation>
         <xs:sequence>
             <xs:element name="title" type="xs:string"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="p" type="xs:string"/>
+                <xs:element name="p" type="ParagraphType"/>
                 <xs:element name="h" type="HeadingType"/>
                 <xs:element name="ul" type="UnorderedListType"/>
                 <xs:element name="ol" type="OrderedListType"/>
@@ -32,12 +56,30 @@
                 <xs:element name="note" type="xs:string"/>
                 <xs:element name="warning" type="xs:string"/>
                 <xs:element name="citation" type="CitationType"/>
+                <xs:element name="audio" type="AudioType"/>
             </xs:choice>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="optional"/>
+        <xs:attribute name="id" type="BlocIdentifierType" use="optional"/>
     </xs:complexType>
 
+    <xs:simpleType name="BlocIdentifierType">
+        <xs:annotation>
+            <xs:documentation>A unique identifier for a BLOC section.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="ParagraphType">
+        <xs:annotation>
+            <xs:documentation>A paragraph.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
     <xs:simpleType name="FormatType">
+        <xs:annotation>
+            <xs:documentation>The format of the lesson.</xs:documentation>
+        </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="print"/>
             <xs:enumeration value="interactive"/>
@@ -45,6 +87,9 @@
     </xs:simpleType>
 
     <xs:complexType name="HeadingType">
+        <xs:annotation>
+            <xs:documentation>A heading.</xs:documentation>
+        </xs:annotation>
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="level" type="xs:integer" use="required"/>
@@ -53,28 +98,72 @@
     </xs:complexType>
 
     <xs:complexType name="UnorderedListType">
+        <xs:annotation>
+            <xs:documentation>An unordered list.</xs:documentation>
+        </xs:annotation>
         <xs:sequence>
             <xs:element name="li" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="OrderedListType">
+        <xs:annotation>
+            <xs:documentation>An ordered list.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="li" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="DefinitionType">
+        <xs:annotation>
+            <xs:documentation>A definition.</xs:documentation>
+        </xs:annotation>
         <xs:attribute name="title" type="xs:string" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="ImageType">
+        <xs:annotation>
+            <xs:documentation>An image.</xs:documentation>
+        </xs:annotation>
         <xs:attribute name="src" type="xs:anyURI" use="required"/>
         <xs:attribute name="alt" type="xs:string" use="required"/>
         <xs:attribute name="caption" type="xs:string" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="VideoType">
+        <xs:annotation>
+            <xs:documentation>A video.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="src" type="xs:anyURI" use="required"/>
+        <xs:attribute name="required" type="xs:boolean" use="optional"/>
+        <xs:attribute name="caption" type="xs:string" use="optional"/>
+        <xs:attribute name="autoplay" type="xs:boolean" use="optional"/>
+        <xs:attribute name="controls" type="xs:boolean" use="optional"/>
+        <xs:attribute name="loop" type="xs:boolean" use="optional"/>
+        <xs:attribute name="muted" type="xs:boolean" use="optional"/>
+        <xs:attribute name="poster" type="xs:anyURI" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="CitationType">
+        <xs:annotation>
+            <xs:documentation>A citation.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="title" type="xs:string" use="required"/>
+        <xs:attribute name="url" type="xs:anyURI" use="required"/>
+        <xs:attribute name="author" type="xs:string" use="optional"/>
+        <xs:attribute name="date" type="xs:date" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="AudioType">
+        <xs:annotation>
+            <xs:documentation>An audio file.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="src" type="xs:anyURI" use="required"/>
+        <xs:attribute name="required" type="xs:boolean" use="optional"/>
+        <xs:attribute name="autoplay" type="xs:boolean" use="optional"/>
+        <xs:attribute name="controls" type="xs:boolean" use="optional"/>
+        <xs:attribute name="loop" type="xs:boolean" use="optional"/>
     </xs:complexType>
 
 </xs:schema>

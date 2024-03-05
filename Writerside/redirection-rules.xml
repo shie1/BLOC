@@ -10,4 +10,8 @@
         <description>Created after removal of "This is the first topic" from Help Instance</description>
         <accepts>Default-topic.html</accepts>
     </rule>
+    <rule id="5e516979">
+        <description>Created after removal of "Implementing BLOC" from BLOC</description>
+        <accepts>Implementing-BLOC.html</accepts>
+    </rule>
 </rules>

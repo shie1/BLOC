@@ -8,7 +8,9 @@ This tag is the root element of a BLOC lesson. It contains all the other tags th
 
 <code-block lang="xml">
 <![CDATA[
-<lesson format="print">
+<lesson format="print" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://cdn.jsdelivr.net/gh/shie1/BLOC@master/bloc.xsd">
     <title>Because every lesson needs a title</title>
     <author>Optional Author</author>
     <date>2020-01-01</date>
@@ -20,6 +22,11 @@ This tag is the root element of a BLOC lesson. It contains all the other tags th
 </code-block>
 
 <chapter title="Parameters" collapsible="true">
+
+<note>
+The `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes are required for the lesson to be validated against the BLOC schema. They should be included in every lesson.
+</note>
+
 <deflist type="full">
 <def title="format (required)">
 The format of the lesson. The value should be one of the following:
