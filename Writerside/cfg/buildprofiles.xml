@@ -8,6 +8,9 @@
             <custom-favicons>bloc_favicon.png</custom-favicons>
             <header-logo>BLOC.svg</header-logo>
             <noindex-content>false</noindex-content>
+            <web-root>https://bloc.shie1bi.hu</web-root>
+            <generate-canonicals>true</generate-canonicals>
+            <generate-sitemap-url-prefix>https://bloc.shie1bi.hu</generate-sitemap-url-prefix>
         </variables>
         <footer>
             <link href="https://github.com/shie1/BLOC">GitHub</link>
