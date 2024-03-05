@@ -136,3 +136,54 @@ The term being defined.
 </def>
 </deflist>
 </chapter>
+
+## `<citation>`
+
+This self-closing tag is used to define a citation.
+
+<code-block lang="xml">
+<![CDATA[
+<citation title="The Chicago Manual of Style" author="University of Chicago Press" date="2017" url="https://www.chicagomanualofstyle.org/" />
+]]>
+</code-block>
+
+<chapter title="Parameters" collapsible="true">
+<deflist type="full">
+<def title="title (required)">
+The title of the source.
+</def>
+<def title="url (required)">
+The URL of the source.
+</def>
+<def title="author">
+The author of the source.
+</def>
+<def title="date">
+The date of the source.
+</def>
+</deflist>
+</chapter>
+
+## `<note>`
+
+This tag is used to define a note.
+
+<code-block lang="xml">
+<![CDATA[
+<note>
+    BLOC is open-source and free for commercial and non-commercial use.
+</note>
+]]>
+</code-block>
+
+## `<warning>`
+
+This tag is used to define a warning.
+
+<code-block lang="xml">
+<![CDATA[
+<warning>
+    The video tag is not available if you have format set to "print".
+</warning>
+]]>
+</code-block>

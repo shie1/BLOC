@@ -2,36 +2,13 @@
 
 These tags are used to define the structure of the lesson. They are the building blocks of a BLOC lesson.
 
-## `<?bloc ?>`
-
-This tag is the declaration for BLOC. It should come after the XML declaration and before the root element of the
-lesson.
-
-<code-block lang="xml">
-<![CDATA[
-<?xml version="1.0" encoding="utf-8" ?>
-<?bloc version="1.0" format="print" ?>
-]]>
-</code-block>
-
-<chapter title="Parameters" collapsible="true">
-<deflist type="full">
-<def title="version (required)">
-The version of BLOC being used. This should be set to "1.0" for the current version.
-</def>
-<def title="format (required)">
-The format of the lesson. This can be set to "print" or "interactive" to indicate the intended output format.
-</def>
-</deflist>
-</chapter>
-
 ## `<lesson>`
 
 This tag is the root element of a BLOC lesson. It contains all the other tags that make up the lesson.
 
 <code-block lang="xml">
 <![CDATA[
-<lesson>
+<lesson format="print">
     <title>Because every lesson needs a title</title>
     <author>Optional Author</author>
     <date>2020-01-01</date>
@@ -44,6 +21,13 @@ This tag is the root element of a BLOC lesson. It contains all the other tags th
 
 <chapter title="Parameters" collapsible="true">
 <deflist type="full">
+<def title="format (required)">
+The format of the lesson. The value should be one of the following:
+<ul>
+<li>print</li>
+<li>interactive</li>
+</ul>
+</def>
 <def title="lang (optional)">
 The language of the lesson. The value should be an ISO 639-1 language code. (e.g., "en" for English, "es" for Spanish, etc.)
 </def>

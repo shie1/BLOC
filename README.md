@@ -16,8 +16,7 @@ Here's an example of a BLOC lesson:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<?bloc version="1.0" format="print" ?>
-<lesson>
+<lesson format="print">
     <title>An Introduction to BLOC</title>
     <author>John Doe</author>
     <date>2020-01-01</date>
