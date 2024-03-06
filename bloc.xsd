@@ -51,6 +51,7 @@
                 <xs:element name="ul" type="UnorderedListType"/>
                 <xs:element name="ol" type="OrderedListType"/>
                 <xs:element name="def" type="DefinitionType"/>
+                <xs:element name="definition" type="DefinitionType"/>
                 <xs:element name="img" type="ImageType"/>
                 <xs:element name="video" type="VideoType"/>
                 <xs:element name="note" type="xs:string"/>
@@ -115,7 +116,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="DefinitionType">
+    <xs:complexType name="DefinitionType" mixed="true">
         <xs:annotation>
             <xs:documentation>A definition.</xs:documentation>
         </xs:annotation>
