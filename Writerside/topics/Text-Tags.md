@@ -145,7 +145,10 @@ The list item.
 ## `<def>` (Definition)
 
 This tag is used to define a term and its definition.
+You can also use `<definiton>` as an alias for `<def>`.
 
+<tabs>
+<tab title="def">
 <code-block lang="xml">
 <![CDATA[
 <def title="BLOC">
@@ -153,6 +156,17 @@ This tag is used to define a term and its definition.
 </def>
 ]]>
 </code-block>
+</tab>
+<tab title="definition">
+<code-block lang="xml">
+<![CDATA[
+<definition title="BLOC">
+    BLOC is an XML-based markup language designed to describe educational content.
+</definition>
+]]>
+</code-block>
+</tab>
+</tabs>
 
 <chapter title="Parameters" collapsible="true">
 <deflist type="full">
