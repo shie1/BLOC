@@ -72,8 +72,8 @@ jobs:
         with:
           base-url-path: ${{ env.BASE_URL }}
 
-      - name: Save sitemap
-        run: echo "${{ steps.sitemap.outputs.sitemap }}" > dir/sitemap.xml
+      - name: Copy sitemap to deployment directory
+        run: cp ${{ steps.sitemap.outputs.sitemap-path }} dir/sitemap.xml
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
