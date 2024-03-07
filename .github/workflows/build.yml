@@ -50,6 +50,28 @@ jobs:
         uses: JetBrains/writerside-checker-action@v1
         with:
           instance: ${{ env.INSTANCE }}
+  sitemap:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: docs
+          path: artifacts
+
+      - name: Generate sitemap
+        run: |
+          unzip -O UTF-8 -qq artifacts/${{ env.ARTIFACT }} -d dir
+          java -jar dir/epubcheck.jar --mode exp --save-sitemap dir/sitemap.xml dir
+        working-directory: ${{ github.workspace }}
+
+      - name: Upload sitemap
+        uses: actions/upload-artifact@v3
+        with:
+          name: sitemap
+          path: dir/sitemap.xml
+          retention-days: 7
   deploy:
     environment:
       name: github-pages
