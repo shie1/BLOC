@@ -28,7 +28,24 @@ The level of the heading. The value should be a number between 1 and 6, inclusiv
 </deflist>
 </chapter>
 
-## Formatting Tags
+## Inline Formatting Tags
+
+These tags are used to define inline formatting.
+<code-block collapsed-title="Inline formatting examples" collapsible="true" lang="xml">
+<![CDATA[
+<p>
+    <strong>Strong text</strong> is important.
+    <em>Emphasized text</em> is also important.
+    <u>Underlined text</u> is not as important.
+    <b>Bold text</b> is also important.
+    <sub>Subscripted text</sub> is not as important.
+    <sup>Superscripted text</sup> is also important.
+    <del>Deleted text</del> is not as important.
+    <ins>Inserted text</ins> is also important.
+    <mark>Marked/highlighted text</mark> is also important.
+</p>
+]]>
+</code-block>
 
 <table>
     <tr>
@@ -37,39 +54,47 @@ The level of the heading. The value should be a number between 1 and 6, inclusiv
     </tr>
     <tr>
         <td><code>&lt;strong&gt;</code></td>
-        <td>Defines strong text</td>
+        <td>Strong text</td>
     </tr>
     <tr>
         <td><code>&lt;em&gt;</code></td>
-        <td>Defines emphasized text</td>
+        <td>Emphasized text</td>
     </tr>
     <tr>
         <td><code>&lt;u&gt;</code></td>
-        <td>Defines underlined text</td>
+        <td>Underlined text</td>
     </tr>
     <tr>
         <td><code>&lt;b&gt;</code></td>
-        <td>Defines bold text</td>
+        <td>Bold text</td>
     </tr>
     <tr>
         <td><code>&lt;sub&gt;</code></td>
-        <td>Defines subscripted text</td>
+        <td>Subscripted text</td>
     </tr>
     <tr>
         <td><code>&lt;sup&gt;</code></td>
-        <td>Defines superscripted text</td>
+        <td>Superscripted text</td>
     </tr>
     <tr>
         <td><code>&lt;del&gt;</code></td>
-        <td>Defines deleted text</td>
+        <td>Deleted text</td>
     </tr>
     <tr>
         <td><code>&lt;ins&gt;</code></td>
-        <td>Defines inserted text</td>
+        <td>Inserted text</td>
     </tr>
     <tr>
         <td><code>&lt;mark&gt;</code></td>
-        <td>Defines marked/highlighted text</td>
+        <td>Marked/highlighted text</td>
+    </tr>
+    <tr>
+        <td><code>&lt;br /&gt;</code></td>
+        <td>Line break</td>
+    </tr>
+    <tr>
+        <td><code>&lt;code&gt;</code></td>
+        <td><p>Inline code</p>Use <code>&lt;code-block&gt;</code> for multi-line, language-specific code snippets</td>
     </tr>
 </table>
 

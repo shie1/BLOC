@@ -22,8 +22,107 @@
                 </xs:element>
             </xs:sequence>
             <xs:attribute name="format" type="FormatType" use="required"/>
-            <xs:attribute name="lang" type="xs:language" /> </xs:complexType>
+            <xs:attribute name="lang" type="xs:language"/>
+        </xs:complexType>
     </xs:element>
+
+    <!-- Formatting tags -->
+
+    <xs:complexType name="TextWithInlineFormatting" mixed="true">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:choice>
+                <xs:element name="strong" type="StrongType"/>
+                <xs:element name="em" type="EmType"/>
+                <xs:element name="u" type="UType"/>
+                <xs:element name="b" type="BType"/>
+                <xs:element name="sub" type="SubType"/>
+                <xs:element name="sup" type="SupType"/>
+                <xs:element name="del" type="DelType"/>
+                <xs:element name="ins" type="InsType"/>
+                <xs:element name="mark" type="MarkType"/>
+                <xs:element name="code" type="CodeType"/>
+                <xs:element name="br" type="BrType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="StrongType">
+        <xs:annotation>
+            <xs:documentation>Strong text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="EmType">
+        <xs:annotation>
+            <xs:documentation>Emphasized text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="UType">
+        <xs:annotation>
+            <xs:documentation>Underlined text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="BType">
+        <xs:annotation>
+            <xs:documentation>Bold text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="SubType">
+        <xs:annotation>
+            <xs:documentation>Subscript text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="SupType">
+        <xs:annotation>
+            <xs:documentation>Superscript text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="DelType">
+        <xs:annotation>
+            <xs:documentation>Deleted text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="InsType">
+        <xs:annotation>
+            <xs:documentation>Inserted text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="MarkType">
+        <xs:annotation>
+            <xs:documentation>Marked or highlighted text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="CodeType">
+        <xs:annotation>
+            <xs:documentation>Code text.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="BrType">
+        <xs:annotation>
+            <xs:documentation>Line break.</xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+    <!-- End of formatting tags -->
 
     <xs:simpleType name="TitleType">
         <xs:annotation>
@@ -39,6 +138,35 @@
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
 
+    <xs:simpleType name="HeadingLevelType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="HeadingType" mixed="true">
+        <xs:annotation>
+            <xs:documentation>A heading.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:choice>
+                <xs:element name="strong" type="StrongType"/>
+                <xs:element name="em" type="EmType"/>
+                <xs:element name="u" type="UType"/>
+                <xs:element name="b" type="BType"/>
+                <xs:element name="sub" type="SubType"/>
+                <xs:element name="sup" type="SupType"/>
+                <xs:element name="del" type="DelType"/>
+                <xs:element name="ins" type="InsType"/>
+                <xs:element name="mark" type="MarkType"/>
+                <xs:element name="code" type="CodeType"/>
+                <xs:element name="br" type="BrType"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="level" type="HeadingLevelType" use="required"/>
+    </xs:complexType>
+
     <xs:complexType name="SectionType">
         <xs:annotation>
             <xs:documentation>A section in the lesson.</xs:documentation>
@@ -46,7 +174,11 @@
         <xs:sequence>
             <xs:element name="title" type="xs:string"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="p" type="ParagraphType"/>
+                <xs:element name="p" type="TextWithInlineFormatting">
+                    <xs:annotation>
+                        <xs:documentation>A paragraph.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
                 <xs:element name="h" type="HeadingType"/>
                 <xs:element name="ul" type="UnorderedListType"/>
                 <xs:element name="ol" type="OrderedListType"/>
@@ -54,8 +186,8 @@
                 <xs:element name="definition" type="DefinitionType"/>
                 <xs:element name="img" type="ImageType"/>
                 <xs:element name="video" type="VideoType"/>
-                <xs:element name="note" type="xs:string"/>
-                <xs:element name="warning" type="xs:string"/>
+                <xs:element name="note" type="NoteType"/>
+                <xs:element name="warning" type="WarningType"/>
                 <xs:element name="citation" type="CitationType"/>
                 <xs:element name="audio" type="AudioType"/>
             </xs:choice>
@@ -70,13 +202,6 @@
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
 
-    <xs:simpleType name="ParagraphType">
-        <xs:annotation>
-            <xs:documentation>A paragraph.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
-
     <xs:simpleType name="FormatType">
         <xs:annotation>
             <xs:documentation>The format of the lesson.</xs:documentation>
@@ -87,23 +212,16 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="HeadingType">
-        <xs:annotation>
-            <xs:documentation>A heading.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="level" type="xs:integer" use="required"/>
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-
     <xs:complexType name="UnorderedListType">
         <xs:annotation>
             <xs:documentation>An unordered list.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="li" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="li" type="TextWithInlineFormatting" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A list item.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 
@@ -112,7 +230,32 @@
             <xs:documentation>An ordered list.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="li" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="li" type="ListItem" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A list item.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ListItem" mixed="true">
+        <xs:annotation>
+            <xs:documentation>A list item.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:choice>
+                <xs:element name="strong" type="StrongType"/>
+                <xs:element name="em" type="EmType"/>
+                <xs:element name="u" type="UType"/>
+                <xs:element name="b" type="BType"/>
+                <xs:element name="sub" type="SubType"/>
+                <xs:element name="sup" type="SupType"/>
+                <xs:element name="del" type="DelType"/>
+                <xs:element name="ins" type="InsType"/>
+                <xs:element name="mark" type="MarkType"/>
+                <xs:element name="code" type="CodeType"/>
+                <xs:element name="br" type="BrType"/>
+            </xs:choice>
         </xs:sequence>
     </xs:complexType>
 
@@ -169,6 +312,32 @@
         <xs:attribute name="autoplay" type="xs:boolean" use="optional"/>
         <xs:attribute name="controls" type="xs:boolean" use="optional"/>
         <xs:attribute name="loop" type="xs:boolean" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="NoteType">
+        <xs:annotation>
+            <xs:documentation>A note.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="p" type="TextWithInlineFormatting" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A paragraph.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WarningType">
+        <xs:annotation>
+            <xs:documentation>A warning.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="p" type="TextWithInlineFormatting" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A paragraph.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 
 </xs:schema>
