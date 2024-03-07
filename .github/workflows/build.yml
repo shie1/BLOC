@@ -76,6 +76,12 @@ jobs:
       - name: Copy sitemap to deployment directory
         run: cp ${{ steps.sitemap.outputs.sitemap-path }} dir/sitemap.xml
 
+      - name: Write robots.txt to deployment directory
+        run: |
+          echo "User-agent: *" > dir/robots.txt
+          echo "Disallow: " >> dir/robots.txt
+          echo "Sitemap: ${{ env.BASE_URL }}sitemap.xml" >> dir/robots.txt
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
