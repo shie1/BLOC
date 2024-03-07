@@ -116,11 +116,15 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="DefinitionType" mixed="true">
+    <xs:complexType name="DefinitionType">
         <xs:annotation>
             <xs:documentation>A definition.</xs:documentation>
         </xs:annotation>
-        <xs:attribute name="title" type="xs:string" use="required"/>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="title" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
     <xs:complexType name="ImageType">
