@@ -73,9 +73,6 @@ jobs:
           base-url-path: ${{ env.BASE_URL }}
           path-to-root: dir
 
-      - name: Copy sitemap to deployment directory
-        run: cp ${{ steps.sitemap.outputs.sitemap-path }} dir/sitemap.xml
-
       - name: Write robots.txt to deployment directory
         run: |
           echo "User-agent: *" > dir/robots.txt
