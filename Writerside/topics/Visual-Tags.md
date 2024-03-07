@@ -1,5 +1,9 @@
 # Visual & Interactive Tags
 
+<warning id="interactive-warning">
+<p>Tags marked as interactive are not available if you have <a href="Core-Structure-Tags.md#lesson">lesson tag's</a> format parameter set to "print".</p>
+</warning>
+
 ## `<img/>` (Image)
 
 This tag is used to define an image. It is a self-closing tag.
@@ -27,11 +31,9 @@ The caption for the image.
 </deflist>
 </chapter>
 
-## `<video/>`
+## `<video/>` 
 
-<warning>
-This tag is not available if you have format set to "print".
-</warning>
+<a href="#interactive-warning"><small>(interactive)</small></a>
 
 This tag is used to define a video. It is a self-closing tag.
 
@@ -87,9 +89,7 @@ The caption for the video.
 
 ## `<audio/>`
 
-<warning>
-This tag is not available if you have format set to "print".
-</warning>
+<a href="#interactive-warning"><small>(interactive)</small></a>
 
 This tag is used to define an audio file. It is a self-closing tag.
 

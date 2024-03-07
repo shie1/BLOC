@@ -90,3 +90,13 @@ Defines a major section or subdivision within a lesson.
 ## `<title>`
 
 The title of the lesson or section. Every lesson and section requires having a title.
+
+## `<!-- Comments -->`
+
+Comments are a base feature of XML. They can be used to add notes to the lesson that are not displayed to the learner.
+
+<code-block lang="xml">
+<![CDATA[
+<!-- This is a comment. -->
+]]>
+</code-block>

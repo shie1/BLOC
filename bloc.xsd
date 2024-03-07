@@ -190,6 +190,7 @@
                 <xs:element name="warning" type="WarningType"/>
                 <xs:element name="citation" type="CitationType"/>
                 <xs:element name="audio" type="AudioType"/>
+                <xs:element name="code-block" type="CodeBlockType"/>
             </xs:choice>
         </xs:sequence>
         <xs:attribute name="id" type="BlocIdentifierType" use="optional"/>
@@ -338,6 +339,17 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CodeBlockType">
+        <xs:annotation>
+            <xs:documentation>A code block.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="lang" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
 </xs:schema>

@@ -94,7 +94,7 @@ These tags are used to define inline formatting.
     </tr>
     <tr>
         <td><code>&lt;code&gt;</code></td>
-        <td><p>Inline code</p>Use <code>&lt;code-block&gt;</code> for multi-line, language-specific code snippets</td>
+        <td><p>Inline code</p>Use <a href="#code-block" ><code>&lt;code-block&gt;</code></a> for multi-line, language-specific code snippets</td>
     </tr>
 </table>
 
@@ -226,3 +226,17 @@ This tag is used to define a warning.
 </warning>
 ]]>
 </code-block>
+
+## `<code-block>`
+This tag is used to define a code block.
+
+```xml
+
+<code-block lang="javascript">
+<![CDATA[
+function helloWorld() {
+    console.log('Hello, world!');
+}
+]]>
+</code-block>
+```
